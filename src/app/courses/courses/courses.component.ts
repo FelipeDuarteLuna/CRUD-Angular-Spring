@@ -14,7 +14,7 @@ import { Course } from './../model/course';
 export class CoursesComponent implements OnInit {
 
   courses$: Observable<Course[]>;
-  displayedColumns = ['name','category'];
+  displayedColumns = ['_id','name','category'];
 
 
   constructor(
