@@ -5,6 +5,7 @@ import { catchError, Observable, of } from 'rxjs';
 import { CoursesService } from '../services/courses.service';
 
 import { Course } from './../model/course';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -14,12 +15,14 @@ import { Course } from './../model/course';
 export class CoursesComponent implements OnInit {
 
   courses$: Observable<Course[]>;
-  displayedColumns = ['_id','name','category'];
+  displayedColumns = ['_id','name','category','actions'];
 
 
   constructor(
     private coursesService: CoursesService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute) {
 
     this.courses$ = this.coursesService.listCoursesAll()
     .pipe(
@@ -40,4 +43,10 @@ export class CoursesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAdd(){
+    console.log('onAdd');
+    this.router.navigate( ['new'], {relativeTo: this.route});
+  }
+
 }
+;
