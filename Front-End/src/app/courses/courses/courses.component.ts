@@ -15,8 +15,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CoursesComponent implements OnInit {
 
   courses$: Observable<Course[]>;
-  displayedColumns = ['_id','name','category','actions'];
-
 
   constructor(
     private coursesService: CoursesService,
@@ -43,10 +41,10 @@ export class CoursesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAdd(){
-    console.log('onAdd');
-    this.router.navigate( ['new'], {relativeTo: this.route});
-  }
+  //onAdd(){
+  //  console.log('onAdd');
+  //  this.router.navigate( ['new'], {relativeTo: this.route});
+  //}
 
 }
 ;

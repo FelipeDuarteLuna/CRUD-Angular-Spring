@@ -10,8 +10,8 @@
 /node_modules
 Front-End/node_modules
 Front-End/node_modules/*
-npm-debug.log
-yarn-error.log
+Front-End/npm-debug.log
+Front-End/yarn-error.log
 
 # IDEs and editors
 .idea/
@@ -23,21 +23,21 @@ yarn-error.log
 *.sublime-workspace
 
 # Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+Front-End/.vscode/*
+Front-End/!.vscode/settings.json
+Front-End/!.vscode/tasks.json
+Front-End/!.vscode/launch.json
+Front-End/!.vscode/extensions.json
+Front-End/.history/*
 
 # Miscellaneous
-/.angular/cache
+Front-End/.angular/cache
 .sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
+Front-End/connect.lock
+Front-End/coverage
+Front-End/libpeerconnection.log
+Front-End/testem.log
+Front-End/typings
 
 # System files
 .DS_Store
