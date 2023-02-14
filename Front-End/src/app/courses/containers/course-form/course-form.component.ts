@@ -5,7 +5,7 @@ import { NonNullableFormBuilder } from '@angular/forms';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { CoursesService } from './../services/courses.service';
+import { CoursesService } from '../../services/courses.service';
 
 @Component({
   selector: 'app-course-form',
@@ -30,7 +30,6 @@ export class CourseFormComponent implements OnInit {
   }
 
   onSalve(){
-    alert("Button Salvar");
     this.service.save(this.form.value).subscribe(
       result => this.onSuccess(),
        error => this.onerror()
