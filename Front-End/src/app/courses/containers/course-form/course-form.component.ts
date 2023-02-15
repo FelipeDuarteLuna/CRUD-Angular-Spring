@@ -26,12 +26,13 @@ export class CourseFormComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onSalve(){
     this.service.save(this.form.value).subscribe(
-      result => this.onSuccess(),
+      result => {
+        return this.onSuccess();
+      },
        error => this.onerror()
        );
   }

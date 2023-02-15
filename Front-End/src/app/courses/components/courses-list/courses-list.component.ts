@@ -11,10 +11,11 @@ export class CoursesListComponent implements OnInit {
 
   @Input() courses: Course[] = [];
   @Output() add = new EventEmitter( false );
+  @Output() edit = new EventEmitter( false );
 
   readonly displayedColumns = ['_id','name','category','actions'];
 
-  constructor( ) { }
+  constructor( ){ }
 
   ngOnInit(): void {
   }
@@ -22,5 +23,11 @@ export class CoursesListComponent implements OnInit {
   onAdd(){
     this.add.emit( true );
   }
+
+  onEdit(courses: Course){
+
+    this.edit.emit( courses );
+  }
+
 
 }

@@ -4,7 +4,8 @@
   <div class="column-flex mat-elevation-z8">
     <app-courses-list *ngIf="courses$ | async as courses; else loading"
           [courses]="courses"
-          (add)="onAdd()"></app-courses-list>
+          (add)="onAdd()"
+          (edit)="OnEdit($event)"></app-courses-list>
 
     <ng-template #loading>
       <div class="loading-spiner">
