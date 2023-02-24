@@ -5,7 +5,8 @@
     <app-courses-list *ngIf="courses$ | async as courses; else loading"
           [courses]="courses"
           (add)="onAdd()"
-          (edit)="OnEdit($event)"></app-courses-list>
+          (edit)="OnEdit($event)"
+          (remove)="onRemove($event)"></app-courses-list>
 
     <ng-template #loading>
       <div class="loading-spiner">
