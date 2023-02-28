@@ -57,8 +57,7 @@ public class CourseController {
 
         System.out.println( newCourse.getName() + newCourse.getCategory() );
 
-        return courseRepository.save( newCourse );
-        //return ResponseEntity.status(HttpStatus.CREATED).body( courseRepository.save( newCourse ) );
+        return courseRepository.save( newCourse ); //return ResponseEntity.status(HttpStatus.CREATED).body( courseRepository.save( newCourse ) );
     }
 
 
@@ -75,7 +74,7 @@ public class CourseController {
     }
    
     @DeleteMapping("/{idCOurse}")
-    public ResponseEntity<Void> delete(@PathVariable Long idCOurse) {
+    public ResponseEntity<Void> delete(@PathVariable @NotNull @Positive Long idCOurse) {
         return courseRepository.findById(idCOurse)
                 .map(recordFound -> {
                     courseRepository.deleteById(idCOurse);
