@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fdl.crudspring.model.Course;
+import com.fdl.crudspring.dto.CourseDTO;
 import com.fdl.crudspring.service.CourseService;
 
 import jakarta.validation.Valid;
@@ -41,34 +41,30 @@ public class CourseController {
 
     
     @GetMapping //@RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody List<Course> list() {
+    public @ResponseBody List<CourseDTO> list() {
         
         return courseService.list();
     }
 
     @GetMapping("/{idCOurse}")
-    public Course findById(@PathVariable @NotNull @Positive Long idCOurse){
+    public CourseDTO findById(@PathVariable @NotNull @Positive Long idCOurse){
 
         return courseService.findById(idCOurse);
-                //.map( recordFound -> ResponseEntity.ok().body(recordFound) )
-                //.orElse(ResponseEntity.notFound().build());
     }
 
     //@RequestMapping( method = RequestMethod.POST)
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Course createCourse( @RequestBody @Valid Course newCourse ){
+    public CourseDTO createCourse( @RequestBody @Valid CourseDTO newCourse ){
 
         return courseService.createCourse( newCourse );
     }
 
 
     @PutMapping("/{idCOurse}")
-    public Course update(@PathVariable @NotNull Long idCOurse, @RequestBody @Valid Course newCourse) {
+    public CourseDTO update(@PathVariable @NotNull Long idCOurse, @RequestBody @Valid @NotNull CourseDTO newCourse) {
        
         return courseService.update(idCOurse, newCourse);
-                //.map(recordFound -> ResponseEntity.ok().body(recordFound) )
-                //.orElse(ResponseEntity.notFound().build());
     }
    
     @DeleteMapping("/{idCOurse}")
