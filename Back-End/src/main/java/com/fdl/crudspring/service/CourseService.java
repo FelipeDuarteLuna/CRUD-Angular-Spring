@@ -9,7 +9,6 @@ import com.fdl.crudspring.exception.RecordNotFoundException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.fdl.crudspring.repository.CourseRepository;
 
@@ -41,7 +40,7 @@ public class CourseService {
     }
 
     
-    public CourseDTO findById(@PathVariable @NotNull @Positive Long idCOurse){
+    public CourseDTO findById( @NotNull @Positive Long idCOurse){
 
         return courseRepository.findById(idCOurse)
                     .map(courseMapper::toDTO)
@@ -59,7 +58,7 @@ public class CourseService {
         return courseRepository.findById(idCOurse)
                 .map(recordFound -> {
                     recordFound.setName(newCourse.name());
-                    recordFound.setCategory(newCourse.category());
+                    recordFound.setCategory( this.courseMapper.convertCategoryValue( newCourse.category() ) );
                     return courseMapper.toDTO( courseRepository.save(recordFound) );               
                 }).orElseThrow(() -> new RecordNotFoundException( idCOurse ) );
     }
