@@ -1,7 +1,5 @@
 package com.fdl.crudspring.model;
 
-import org.hibernate.annotations.ManyToAny;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
@@ -31,5 +29,6 @@ public class Lesson {
 
     @ManyToOne( fetch = FetchType.LAZY, optional = false)
     @JoinColumn( name = "course_id", nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Course course;
 }
