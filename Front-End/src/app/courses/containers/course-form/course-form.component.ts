@@ -1,7 +1,7 @@
 import { Course } from './../../model/course';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NonNullableFormBuilder, UntypedFormArray, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 
@@ -40,23 +40,27 @@ export class CourseFormComponent implements OnInit {
     console.log("Valor do Formulário:", this.form.value);
    }
 
-   private retrieveLessons(course: Course){
-      const lessons= [];
-      if(course?.lessons){
-          course.lessons.forEach(lesson => lessons.push( this.createLesson( lesson )));
-      } else {
-          lessons.push( this.createLesson() );
-      }
-      return lessons;
-   }
+   private retrieveLessons(course: Course) {
+    const lessons = [];
+    if (course?.lessons) {
+      course.lessons.forEach(lesson => lessons.push(this.createLesson(lesson)));
+    } else {
+      lessons.push(this.createLesson());
+    }
+    return lessons;
+  }
 
-   private createLesson(lesson: Lesson = {id: '', name:'', youtubeUrl: ''} ){
-      return this.formBuilder.group({
-                id: [lesson.id],
-                name:[lesson.name],
-                youtubeUrl:[lesson.youtubeUrl]
-      });
-   }
+  private createLesson(lesson: Lesson = { id: '', name: '', youtubeUrl: '' }) {
+    return this.formBuilder.group({
+      id: [lesson.id],
+      name: [lesson.name],
+      youtubeUrl: [lesson.youtubeUrl]
+    });
+  }
+
+  getLessonsFormArray() {
+    return (<UntypedFormArray>this.form.get('lessons')).controls;
+  }
 
   onSalve(){
     this.service.save(this.form.value).subscribe(
