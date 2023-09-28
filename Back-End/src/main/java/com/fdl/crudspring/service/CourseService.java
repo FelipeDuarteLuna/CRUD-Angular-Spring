@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import com.fdl.crudspring.dto.CourseDTO;
 import com.fdl.crudspring.dto.mapper.CourseMapper;
 import com.fdl.crudspring.exception.RecordNotFoundException;
+import com.fdl.crudspring.model.Course;
 
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -57,8 +58,11 @@ public class CourseService {
     public CourseDTO update( @NotNull @Positive Long idCOurse, @Valid @NotNull CourseDTO newCourse) {
         return courseRepository.findById(idCOurse)
                 .map(recordFound -> {
+                    Course course = courseMapper.toEntity(newCourse);
                     recordFound.setName(newCourse.name());
                     recordFound.setCategory( this.courseMapper.convertCategoryValue( newCourse.category() ) );
+                    recordFound.getLessons().clear();
+                    course.getLessons().forEach(recordFound.getLessons()::add);
                     return courseMapper.toDTO( courseRepository.save(recordFound) );               
                 }).orElseThrow(() -> new RecordNotFoundException( idCOurse ) );
     }
