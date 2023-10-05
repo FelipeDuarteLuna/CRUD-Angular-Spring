@@ -4,17 +4,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.fdl.crudspring.dto.CourseDTO;
+import com.fdl.crudspring.dto.CoursePageDTO;
 import com.fdl.crudspring.dto.mapper.CourseMapper;
 import com.fdl.crudspring.exception.RecordNotFoundException;
+import com.fdl.crudspring.model.Course;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import com.fdl.crudspring.repository.CourseRepository;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 
 @Validated
 @Service
@@ -31,13 +37,18 @@ public class CourseService {
     }
 
     //Method's
-    public List<CourseDTO> list() {
+    public CoursePageDTO list( @PositiveOrZero int page, @Positive @Max(100) int size ) {
+        Page<Course> pageCourse = courseRepository.findAll(PageRequest.of(page, size));
+        List<CourseDTO> courses = pageCourse.get().map(courseMapper::toDTO).collect(Collectors.toList());
+        return new CoursePageDTO(courses, pageCourse.getTotalElements(), pageCourse.getTotalPages());
+    }
+    /*public List<CourseDTO> list() {
 
         return courseRepository.findAll()
                 .stream()
                 .map(courseMapper::toDTO)
                 .collect(Collectors.toList());
-    }
+    }*/
 
     
     public CourseDTO findById( @NotNull @Positive Long idCOurse){
@@ -57,8 +68,11 @@ public class CourseService {
     public CourseDTO update( @NotNull @Positive Long idCOurse, @Valid @NotNull CourseDTO newCourse) {
         return courseRepository.findById(idCOurse)
                 .map(recordFound -> {
+                    Course course = courseMapper.toEntity(newCourse);
                     recordFound.setName(newCourse.name());
                     recordFound.setCategory( this.courseMapper.convertCategoryValue( newCourse.category() ) );
+                    recordFound.getLessons().clear();
+                    course.getLessons().forEach(recordFound.getLessons()::add);
                     return courseMapper.toDTO( courseRepository.save(recordFound) );               
                 }).orElseThrow(() -> new RecordNotFoundException( idCOurse ) );
     }
