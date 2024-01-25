@@ -20,7 +20,7 @@ public class Lesson {
     
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO)
-    @JsonProperty("_id")
+    //@JsonProperty("_id")
     private Long id;
 
     @NotNull
@@ -75,9 +75,10 @@ public class Lesson {
 
     @Override
     public String toString() {
-        return "Lesson [id=" + id + ", name=" + name + ", youtubeUrl=" + youtubeUrl + ", course=" + course + "]";
+        StringBuilder builder = new StringBuilder();
+        builder.append("Lesson [id=").append(id).append(", name=").append(name).append(", youtubeUrl=")
+                .append(youtubeUrl).append(", course=").append(course).append("]");
+        return builder.toString();
     }
-
-    
     
 }
