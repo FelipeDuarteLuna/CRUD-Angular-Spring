@@ -28,9 +28,9 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
+// @Table(name = "cursos")
 @SQLDelete(sql = "UPDATE Course SET status = 'Inativo' WHERE id = ?")
-@Where( clause = "Status = 'Ativo'")
-//@Table(name = "cursos")
+@Where(clause = "status = 'Ativo'")
 public class Course {
 
     @Id
@@ -41,7 +41,7 @@ public class Course {
     @NotBlank
     @NotNull
     @Length(min = 5, max = 100)
-    @Column(length = 200, nullable = false)
+    @Column(length = 100, nullable = false)
     private String name;
 
     @NotNull
@@ -57,8 +57,8 @@ public class Course {
     @NotNull
     @NotEmpty
     @Valid
-    @OneToMany( cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "course" )
-    //@JoinColumn(name = "course_id")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "course")
+    // @JoinColumn(name = "course_id")
     private List<Lesson> lessons = new ArrayList<>();
 
     public Long getId() {
@@ -100,7 +100,5 @@ public class Course {
     public void setLessons(List<Lesson> lessons) {
         this.lessons = lessons;
     }
-    
-
     
 }

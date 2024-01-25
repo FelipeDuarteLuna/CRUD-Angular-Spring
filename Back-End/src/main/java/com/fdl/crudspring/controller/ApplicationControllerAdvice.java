@@ -1,4 +1,5 @@
 package com.fdl.crudspring.controller;
+import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -16,9 +17,8 @@ public class ApplicationControllerAdvice {
 
     @ExceptionHandler(RecordNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String  handleNotFoundException( RecordNotFoundException messagem){
-
-        return messagem.getMessage();
+    public String handleNotFoundException(RecordNotFoundException ex) {
+        return ex.getMessage();
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -48,7 +48,4 @@ public class ApplicationControllerAdvice {
         }
         return "Argument type not valid";
     }
-
-    
-    
 }

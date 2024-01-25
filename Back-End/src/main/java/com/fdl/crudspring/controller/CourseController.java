@@ -1,7 +1,5 @@
 package com.fdl.crudspring.controller;
 
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
 
 import org.springframework.validation.annotation.Validated;
@@ -34,28 +32,23 @@ import jakarta.validation.constraints.PositiveOrZero;
 @RestController
 @RequestMapping("/api/courses")
 public class CourseController {
-
     
     private final CourseService courseService;
 
-        public CourseController( CourseService courseService){
-            
+        public CourseController(CourseService courseService) {
             this.courseService = courseService;
         }
 
-    
-    @GetMapping //@RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody CoursePageDTO list(@RequestParam(defaultValue = "0") @PositiveOrZero int page,
-                    @RequestParam(defaultValue = "10") @Positive @Max(100) int size ) {
-        
-        return courseService.list(page, size );
+    @GetMapping
+    public CoursePageDTO list(@RequestParam(defaultValue = "0") @PositiveOrZero int page,
+                    @RequestParam(defaultValue = "10") @Positive @Max(100) int pageSize) {
+        return courseService.list(page, pageSize);
     }
 
-    /*@GetMapping //@RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody List<CourseDTO> list() {
-        
-        return courseService.list();
-    }*/
+    // @GetMapping
+    // public List<CourseDTO> list() {
+        // return courseService.list();
+    // }
 
     @GetMapping("/{idCOurse}")
     public CourseDTO findById(@PathVariable @NotNull @Positive Long idCOurse){
