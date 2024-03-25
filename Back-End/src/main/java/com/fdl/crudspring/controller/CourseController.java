@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,11 +43,6 @@ public class CourseController {
                     @RequestParam(defaultValue = "10") @Positive @Max(100) int pageSize) {
         return courseService.list(page, pageSize);
     }
-
-    // @GetMapping
-    // public List<CourseDTO> list() {
-        // return courseService.list();
-    // }
 
     @GetMapping("/{idCOurse}")
     public CourseDTO findById(@PathVariable @NotNull @Positive Long idCOurse){
