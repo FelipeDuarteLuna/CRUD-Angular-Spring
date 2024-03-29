@@ -1,0 +1,297 @@
+{
+  "version": "6.0",
+  "nxVersion": "18.1.3",
+  "deps": {
+    "@angular/animations": "^17.3.1",
+    "@angular/cdk": "^17.3.1",
+    "@angular/common": "^17.3.1",
+    "@angular/compiler": "^17.3.1",
+    "@angular/core": "^17.3.1",
+    "@angular/forms": "^17.3.1",
+    "@angular/material": "^17.3.1",
+    "@angular/platform-browser": "^17.3.1",
+    "@angular/platform-browser-dynamic": "^17.3.1",
+    "@angular/router": "^17.3.1",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.4",
+    "@angular-devkit/build-angular": "^17.3.2",
+    "@angular-eslint/builder": "17.3.0",
+    "@angular-eslint/eslint-plugin": "17.3.0",
+    "@angular-eslint/eslint-plugin-template": "17.3.0",
+    "@angular-eslint/schematics": "17.3.0",
+    "@angular-eslint/template-parser": "17.3.0",
+    "@angular/cli": "~17.3.2",
+    "@angular/compiler-cli": "^17.3.1",
+    "@types/jasmine": "~4.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.57.0",
+    "jasmine-core": "~4.3.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "typescript": "5.4.3"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {},
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "17241496168097493888"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "10932912720969671161"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "3581377072083041488"
+      },
+      {
+        "file": "README.md",
+        "hash": "17613757164833021077"
+      },
+      {
+        "file": "angular.json",
+        "hash": "16507433705642789119"
+      },
+      {
+        "file": "karma.conf.js",
+        "hash": "509689032226288982"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "5365119766142019313"
+      },
+      {
+        "file": "package.json",
+        "hash": "1683829463315146269"
+      },
+      {
+        "file": "proxy.conf.js",
+        "hash": "583995235448021995"
+      },
+      {
+        "file": "src/app/app-routing.module.ts",
+        "hash": "10571645730806238609"
+      },
+      {
+        "file": "src/app/app.component.html",
+        "hash": "10188288763918796632"
+      },
+      {
+        "file": "src/app/app.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/app.component.spec.ts",
+        "hash": "15182366807667495505"
+      },
+      {
+        "file": "src/app/app.component.ts",
+        "hash": "14866639636519029254"
+      },
+      {
+        "file": "src/app/app.module.ts",
+        "hash": "9047532250512126480"
+      },
+      {
+        "file": "src/app/courses/components/courses-list/courses-list.component.html",
+        "hash": "7870671029996935252"
+      },
+      {
+        "file": "src/app/courses/components/courses-list/courses-list.component.scss",
+        "hash": "8321963302085887188"
+      },
+      {
+        "file": "src/app/courses/components/courses-list/courses-list.component.spec.ts",
+        "hash": "6470955577542640882"
+      },
+      {
+        "file": "src/app/courses/components/courses-list/courses-list.component.ts",
+        "hash": "7927058750489908395"
+      },
+      {
+        "file": "src/app/courses/containers/course-form/course-form.component.html",
+        "hash": "3168633803732818093"
+      },
+      {
+        "file": "src/app/courses/containers/course-form/course-form.component.scss",
+        "hash": "6937436008394427790"
+      },
+      {
+        "file": "src/app/courses/containers/course-form/course-form.component.spec.ts",
+        "hash": "558129018821900398"
+      },
+      {
+        "file": "src/app/courses/containers/course-form/course-form.component.ts",
+        "hash": "10081279856804583257"
+      },
+      {
+        "file": "src/app/courses/containers/courses/courses.component.html",
+        "hash": "17475678657648528644"
+      },
+      {
+        "file": "src/app/courses/containers/courses/courses.component.scss",
+        "hash": "17572500277171160950"
+      },
+      {
+        "file": "src/app/courses/containers/courses/courses.component.spec.ts",
+        "hash": "1600306279193872163"
+      },
+      {
+        "file": "src/app/courses/containers/courses/courses.component.ts",
+        "hash": "8376713634343583988"
+      },
+      {
+        "file": "src/app/courses/courses-routing.module.ts",
+        "hash": "10920621415561283862"
+      },
+      {
+        "file": "src/app/courses/courses.module.ts",
+        "hash": "15299441385763555775"
+      },
+      {
+        "file": "src/app/courses/guards/course.resolver.spec.ts",
+        "hash": "283722926278018868"
+      },
+      {
+        "file": "src/app/courses/guards/course.resolver.ts",
+        "hash": "4362014806905140600"
+      },
+      {
+        "file": "src/app/courses/model/course-page.ts",
+        "hash": "6339431075100960666"
+      },
+      {
+        "file": "src/app/courses/model/course.ts",
+        "hash": "11388668904112450896"
+      },
+      {
+        "file": "src/app/courses/model/lesson.ts",
+        "hash": "7327598031703548897"
+      },
+      {
+        "file": "src/app/courses/services/courses.service.spec.ts",
+        "hash": "2224241491441126570"
+      },
+      {
+        "file": "src/app/courses/services/courses.service.ts",
+        "hash": "15988315999235205938"
+      },
+      {
+        "file": "src/app/shared/app-material/app-material.module.ts",
+        "hash": "17622451310191529627"
+      },
+      {
+        "file": "src/app/shared/components/error-dialog/confirmation-dialog/confirmation-dialog.component.html",
+        "hash": "9430478261699730341"
+      },
+      {
+        "file": "src/app/shared/components/error-dialog/confirmation-dialog/confirmation-dialog.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/shared/components/error-dialog/confirmation-dialog/confirmation-dialog.component.spec.ts",
+        "hash": "15071278669288305778"
+      },
+      {
+        "file": "src/app/shared/components/error-dialog/confirmation-dialog/confirmation-dialog.component.ts",
+        "hash": "9415055030754992821"
+      },
+      {
+        "file": "src/app/shared/components/error-dialog/error-dialog.component.html",
+        "hash": "13254073979263170140"
+      },
+      {
+        "file": "src/app/shared/components/error-dialog/error-dialog.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/shared/components/error-dialog/error-dialog.component.spec.ts",
+        "hash": "9825425035041997375"
+      },
+      {
+        "file": "src/app/shared/components/error-dialog/error-dialog.component.ts",
+        "hash": "9863070548754311933"
+      },
+      {
+        "file": "src/app/shared/form/form-utils.service.spec.ts",
+        "hash": "16992569350085838902"
+      },
+      {
+        "file": "src/app/shared/form/form-utils.service.ts",
+        "hash": "5930632099139994888"
+      },
+      {
+        "file": "src/app/shared/pipes/category.pipe.spec.ts",
+        "hash": "9314726173510802753"
+      },
+      {
+        "file": "src/app/shared/pipes/category.pipe.ts",
+        "hash": "7540282288067998177"
+      },
+      {
+        "file": "src/app/shared/shared.module.ts",
+        "hash": "11830571456036818613"
+      },
+      {
+        "file": "src/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/assets/courses.json",
+        "hash": "4091179404980158618"
+      },
+      {
+        "file": "src/environments/environment.prod.ts",
+        "hash": "11847377846594200203"
+      },
+      {
+        "file": "src/environments/environment.ts",
+        "hash": "14410313991637913761"
+      },
+      {
+        "file": "src/favicon.ico",
+        "hash": "3464744996580215640"
+      },
+      {
+        "file": "src/index.html",
+        "hash": "11819900038759232290"
+      },
+      {
+        "file": "src/main.ts",
+        "hash": "11681253612016894649"
+      },
+      {
+        "file": "src/polyfills.ts",
+        "hash": "18064416744314232023"
+      },
+      {
+        "file": "src/styles.scss",
+        "hash": "6205669726275566233"
+      },
+      {
+        "file": "src/test.ts",
+        "hash": "7876741224155508608"
+      },
+      {
+        "file": "tsconfig.app.json",
+        "hash": "7685451593566938896"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "2154496158798657848"
+      },
+      {
+        "file": "tsconfig.spec.json",
+        "hash": "14277469517724802009"
+      }
+    ]
+  }
+}
