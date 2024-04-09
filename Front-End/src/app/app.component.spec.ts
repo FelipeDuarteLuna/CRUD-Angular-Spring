@@ -28,6 +28,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('crud-angular app is running!');
+    const spanElement = compiled.querySelector('span'); // Seleciona a tag <span>
+    expect(spanElement?.textContent).toContain('My Application - CRUD Angular + Spring');
   });
 });
